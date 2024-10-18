@@ -2,6 +2,7 @@
 
 ```@setup block
 projdir = dirname(Base.active_project())
+using StatsBase
 include(joinpath(projdir,"src","lecture_03","Lab03Ecosystem.jl"))
 
 function find_food(a::Animal, w::World)
@@ -39,7 +40,7 @@ Plants have a simpler life. They simply grow if they have not reached their maxi
 <details class = "solution-body">
 <summary class = "solution-header">Solution:</summary><p>
 ```
-```@example block
+```@setup block
 function agent_step!(p::Plant, w::World)
     if p.size < p.max_size
         p.size += 1
@@ -95,7 +96,7 @@ if a given ID is currently present in the `World`.
 <details class = "solution-body">
 <summary class = "solution-header">Solution:</summary><p>
 ```
-```@example block
+```@setup block
 # make it possible to eat nothing
 eat!(::Animal, ::Nothing, ::World) = nothing
 
